@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ライフスタイルブログ - 毎日をもっと豊かに</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+          Meiryo, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* ヘッダー */
+      header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: opacity 0.3s;
+      }
+
+      .nav-links a:hover {
+        opacity: 0.8;
+      }
+
+      /* ヒーローセクション */
+      .hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      .hero p {
+        font-size: 20px;
+        margin-bottom: 40px;
+        opacity: 0.9;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: #ff6b6b;
+        color: white;
+        padding: 15px 40px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+      }
+
+      /* 特徴セクション */
+      .features {
+        padding: 80px 0;
+        background: #f8f9fa;
+      }
+
+      .features h2 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 60px;
+        color: #333;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .feature-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .feature-card h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #667eea;
+      }
+
+      .feature-card p {
+        color: #666;
+        line-height: 1.8;
+      }
+
+      /* 広告セクション */
+      .ad-section {
+        padding: 80px 0;
+        background: white;
+        text-align: center;
+      }
+
+      .ad-section h2 {
+        font-size: 36px;
+        margin-bottom: 30px;
+        color: #333;
+      }
+
+      .ad-section p {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .ad-button {
+        display: inline-block;
+        background: #4ecdc4;
+        color: white;
+        padding: 18px 50px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
+      }
+
+      .ad-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(78, 205, 196, 0.6);
+      }
+
+      /* ブログ記事プレビュー */
+      .blog-preview {
+        padding: 80px 0;
+        background: #f8f9fa;
+      }
+
+      .blog-preview h2 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 60px;
+        color: #333;
+      }
+
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .blog-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .blog-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 48px;
+      }
+
+      .blog-content {
+        padding: 25px;
+      }
+
+      .blog-card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .blog-card p {
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .read-more {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      /* CTA セクション */
+      .cta-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-align: center;
+      }
+
+      .cta-section h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .cta-section p {
+        font-size: 18px;
+        margin-bottom: 40px;
+        opacity: 0.9;
+      }
+
+      /* フッター */
+      footer {
+        background: #2c3e50;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      footer p {
+        opacity: 0.8;
+      }
+
+      /* レスポンシブ */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 32px;
+        }
+
+        .hero p {
+          font-size: 16px;
+        }
+
+        .nav-links {
+          gap: 15px;
+        }
+
+        .feature-grid,
+        .blog-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ヘッダー -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">📝 LifeStyle Blog</div>
+          <ul class="nav-links">
+            <li><a href="#home">ホーム</a></li>
+            <li><a href="#about">ブログについて</a></li>
+            <li><a href="#articles">記事</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero" id="home">
+      <div class="container">
+        <h1>毎日をもっと豊かに</h1>
+        <p>ライフスタイル、健康、趣味に関する情報をお届けします</p>
+        <a href="" class="cta-button">今すぐ読む</a>
+      </div>
+    </section>
+
+    <!-- 特徴セクション -->
+    <section class="features">
+      <div class="container">
+        <h2>ブログの特徴</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>毎日更新</h3>
+            <p>
+              新鮮な情報を毎日お届け。あなたの生活に役立つヒントが満載です。
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💡</div>
+            <h3>実用的なアドバイス</h3>
+            <p>
+              すぐに実践できる具体的なアドバイスで、あなたの生活を改善します。
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>幅広いトピック</h3>
+            <p>健康、料理、旅行、趣味など、多様なテーマをカバーしています。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 広告セクション -->
+    <section class="ad-section">
+      <div class="container">
+        <h2>🎁 特別オファー</h2>
+        <p>
+          今だけの限定キャンペーン！詳細はこちらをクリックしてご確認ください。
+        </p>
+        <a href="" class="ad-button">詳細を見る</a>
+      </div>
+    </section>
+
+    <!-- ブログ記事プレビュー -->
+    <section class="blog-preview" id="articles">
+      <div class="container">
+        <h2>人気の記事</h2>
+        <div class="blog-grid">
+          <div class="blog-card">
+            <div class="blog-image">📚</div>
+            <div class="blog-content">
+              <h3>朝の習慣で人生が変わる</h3>
+              <p>成功者が実践する朝のルーティンを紹介します。</p>
+              <a href="" class="read-more">続きを読む →</a>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-image">🍳</div>
+            <div class="blog-content">
+              <h3>簡単で美味しい時短レシピ</h3>
+              <p>忙しい日でも作れる栄養満点のレシピ集。</p>
+              <a href="" class="read-more">続きを読む →</a>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-image">🧘</div>
+            <div class="blog-content">
+              <h3>ストレス解消法10選</h3>
+              <p>心と体をリフレッシュする方法をご紹介。</p>
+              <a href="" class="read-more">続きを読む →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>もっと詳しく知りたい方へ</h2>
+        <p>メールマガジンに登録して、最新情報をいち早くゲット！</p>
+        <a href="" class="cta-button">無料登録する</a>
+      </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+      <div class="container">
+        <p>&copy; 2026 LifeStyle Blog. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
