@@ -304,123 +304,111 @@
         }
       }
     </style>
+    <style>
+      /* ブログ記事ページのスタイル */
+      .blog-post {
+        padding: 60px 0;
+        background: #f8f9fa;
+        min-height: 100vh;
+      }
+
+      .blog-post-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 40px 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .blog-post-icon {
+        font-size: 72px;
+        margin-bottom: 20px;
+      }
+
+      .blog-post-title {
+        font-size: 36px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .blog-post-meta {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        color: #666;
+        font-size: 16px;
+      }
+
+      .blog-post-content {
+        background: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+
+      .blog-post-content h3 {
+        color: #667eea;
+        font-size: 24px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      .blog-post-content p {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      .blog-post-footer {
+        text-align: center;
+      }
+
+      .back-button {
+        display: inline-block;
+        background: #667eea;
+        color: white;
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: bold;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .back-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+      }
+
+      @media (max-width: 768px) {
+        .blog-post-title {
+          font-size: 28px;
+        }
+
+        .blog-post-meta {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .blog-post-content {
+          padding: 20px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- ヘッダー -->
-    <header>
-      <div class="container">
-        <nav>
-          <div class="logo">📝 LifeStyle Blog</div>
-          <ul class="nav-links">
-            <li><a href="#home">ホーム</a></li>
-            <li><a href="#about">ブログについて</a></li>
-            <li><a href="#articles">記事</a></li>
-            <li><a href="#contact">お問い合わせ</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <div id="app">
+      <!-- コンテンツはJavaScriptで動的に生成されます -->
+    </div>
 
-    <!-- ヒーローセクション -->
-    <section class="hero" id="home">
-      <div class="container">
-        <h1>毎日をもっと豊かに</h1>
-        <p>ライフスタイル、健康、趣味に関する情報をお届けします</p>
-        <a href="" class="cta-button">今すぐ読む</a>
-      </div>
-    </section>
-
-    <!-- 特徴セクション -->
-    <section class="features">
-      <div class="container">
-        <h2>ブログの特徴</h2>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <div class="feature-icon">✨</div>
-            <h3>毎日更新</h3>
-            <p>
-              新鮮な情報を毎日お届け。あなたの生活に役立つヒントが満載です。
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">💡</div>
-            <h3>実用的なアドバイス</h3>
-            <p>
-              すぐに実践できる具体的なアドバイスで、あなたの生活を改善します。
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>幅広いトピック</h3>
-            <p>健康、料理、旅行、趣味など、多様なテーマをカバーしています。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 広告セクション -->
-    <section class="ad-section">
-      <div class="container">
-        <h2>🎁 特別オファー</h2>
-        <p>
-          今だけの限定キャンペーン！詳細はこちらをクリックしてご確認ください。
-        </p>
-        <a
-          href="https://ads-tracker-api.onrender.com/cl/03ecb94c721d?bid=a225b36ff7f5b597e042d2d8"
-          class="ad-button"
-          referrerpolicy="unsafe-url"
-          >詳細を見る</a
-        >
-      </div>
-    </section>
-
-    <!-- ブログ記事プレビュー -->
-    <section class="blog-preview" id="articles">
-      <div class="container">
-        <h2>人気の記事</h2>
-        <div class="blog-grid">
-          <div class="blog-card">
-            <div class="blog-image">📚</div>
-            <div class="blog-content">
-              <h3>朝の習慣で人生が変わる</h3>
-              <p>成功者が実践する朝のルーティンを紹介します。</p>
-              <a href="" class="read-more">続きを読む →</a>
-            </div>
-          </div>
-          <div class="blog-card">
-            <div class="blog-image">🍳</div>
-            <div class="blog-content">
-              <h3>簡単で美味しい時短レシピ</h3>
-              <p>忙しい日でも作れる栄養満点のレシピ集。</p>
-              <a href="" class="read-more">続きを読む →</a>
-            </div>
-          </div>
-          <div class="blog-card">
-            <div class="blog-image">🧘</div>
-            <div class="blog-content">
-              <h3>ストレス解消法10選</h3>
-              <p>心と体をリフレッシュする方法をご紹介。</p>
-              <a href="" class="read-more">続きを読む →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTAセクション -->
-    <section class="cta-section">
-      <div class="container">
-        <h2>もっと詳しく知りたい方へ</h2>
-        <p>メールマガジンに登録して、最新情報をいち早くゲット！</p>
-        <a href="" class="cta-button">無料登録する</a>
-      </div>
-    </section>
-
-    <!-- フッター -->
-    <footer>
-      <div class="container">
-        <p>&copy; 2026 LifeStyle Blog. All rights reserved.</p>
-      </div>
-    </footer>
+    <!-- JavaScriptファイルを読み込む -->
+    <script src="js/pages.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
