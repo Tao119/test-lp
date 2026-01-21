@@ -3,11 +3,16 @@ const Pages = {
   // 広告URL一括管理リスト
   // 各記事の広告リンクをここで管理できます
   adUrls: {
-    "morning-routine": "", // 朝の習慣で人生が変わる
-    "quick-recipes": "", // 簡単で美味しい時短レシピ
-    "stress-relief": "", // ストレス解消法10選
-    "remote-work-productivity": "", // 在宅ワークの生産性向上術
-    "weekend-travel": "", // 週末に行ける国内旅行スポット
+    "morning-routine":
+      "https://ads-tracker-api.onrender.com/cl/03ecb94c721d?bid=a225b36ff7f5b597e042d2d8", // 朝の習慣で人生が変わる
+    "quick-recipes":
+      "https://ads-tracker-api.onrender.com/cl/3e4f4bc11e4f?bid=b78aca52583ab3dbc43e9618", // 簡単で美味しい時短レシピ
+    "stress-relief":
+      "https://ads-tracker-api.onrender.com/cl/2843acffe6f6?bid=c53ed022a18055d22867ca52", // ストレス解消法10選
+    "remote-work-productivity":
+      "https://ads-tracker-api.onrender.com/cl/9b8b317e8151?bid=360982eb0377f7b6243c93f3", // 在宅ワークの生産性向上術
+    "weekend-travel":
+      "https://ads-tracker-api.onrender.com/cl/f41630fa796c?bid=d74166df5545bf5209b4a134", // 週末に行ける国内旅行スポット
     "yoga-guide": "", // 初心者向けヨガガイド
     "reading-habit": "", // 読書習慣を身につける方法
     "frugal-lifestyle": "", // 節約しながら楽しむライフスタイル
