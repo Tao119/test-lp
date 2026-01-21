@@ -13,8 +13,10 @@ const Pages = {
       "https://ads-tracker-api.onrender.com/cl/9b8b317e8151?bid=360982eb0377f7b6243c93f3", // 在宅ワークの生産性向上術
     "weekend-travel":
       "https://ads-tracker-api.onrender.com/cl/f41630fa796c?bid=d74166df5545bf5209b4a134", // 週末に行ける国内旅行スポット
-    "yoga-guide": "", // 初心者向けヨガガイド
-    "reading-habit": "", // 読書習慣を身につける方法
+    "yoga-guide":
+      "https://ads-tracker-api.onrender.com/cl/e1886543ae87?bid=a6d37e23bd00ac4a19e453ac", // 初心者向けヨガガイド
+    "reading-habit":
+      "https://ads-tracker-api.onrender.com/cl/f6e067d56361?bid=18682064684b61fda5664490", // 読書習慣を身につける方法
     "frugal-lifestyle": "", // 節約しながら楽しむライフスタイル
     "digital-detox": "", // デジタルデトックスのすすめ
     "finding-hobbies": "", // 趣味を見つける10のヒント
