@@ -19,7 +19,8 @@ const Pages = {
       "https://ads-tracker-api.onrender.com/cl/f6e067d56361?bid=18682064684b61fda5664490", // 読書習慣を身につける方法
     "frugal-lifestyle": "", // 節約しながら楽しむライフスタイル
     "digital-detox": "", // デジタルデトックスのすすめ
-    "finding-hobbies": "", // 趣味を見つける10のヒント
+    "finding-hobbies":
+      "https://ads-tracker-api.onrender.com/cl/9bba720084bb?bid=e4e4194920905792966f3235", // 趣味を見つける10のヒント
   },
 
   // ブログ記事データ
