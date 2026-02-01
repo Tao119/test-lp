@@ -17,8 +17,10 @@ const Pages = {
       "https://ads-tracker-api.onrender.com/cl/e1886543ae87?bid=a6d37e23bd00ac4a19e453ac", // 初心者向けヨガガイド
     "reading-habit":
       "https://ads-tracker-api.onrender.com/cl/f6e067d56361?bid=18682064684b61fda5664490", // 読書習慣を身につける方法
-    "frugal-lifestyle": "", // 節約しながら楽しむライフスタイル
-    "digital-detox": "", // デジタルデトックスのすすめ
+    "frugal-lifestyle":
+      "https://ads-tracker-api.onrender.com/cl/f7a4e5a7bde0?bid=b3c976d5431c55c6e9763d74", // 節約しながら楽しむライフスタイル
+    "digital-detox":
+      "https://ads-tracker-api.onrender.com/cl/326677a45f6a?bid=9d91de3615d89581803da4f6", // デジタルデトックスのすすめ
     "finding-hobbies":
       "https://ads-tracker-api.onrender.com/cl/9bba720084bb?bid=e4e4194920905792966f3235", // 趣味を見つける10のヒント
   },
