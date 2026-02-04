@@ -4,7 +4,7 @@ const Pages = {
   // 各記事の広告リンクをここで管理できます
   adUrls: {
     "morning-routine":
-      "https://ads-tracker-api.onrender.com/cl/03ecb94c721d?bid=a225b36ff7f5b597e042d2d8", // 朝の習慣で人生が変わる
+      "https://sss.ac01.l-ad.net/cl/p1a64143O61e70f7/?bid=0808fw267e416029&cats_report1=", // 朝の習慣で人生が変わる
     "quick-recipes":
       "https://ads-tracker-api.onrender.com/cl/3e4f4bc11e4f?bid=b78aca52583ab3dbc43e9618", // 簡単で美味しい時短レシピ
     "stress-relief":
