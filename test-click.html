@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracker Click Test — リファラ元ページ</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; background: #f5f5f5; }
+    h1 { font-size: 20px; color: #333; margin-bottom: 6px; }
+    .sub { color: #888; font-size: 13px; margin-bottom: 28px; }
+    h2 { font-size: 14px; color: #555; margin: 24px 0 10px; border-left: 4px solid #4ecdc4; padding-left: 8px; }
+    .link-row { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 12px 16px; margin-bottom: 8px; }
+    .link-row a { display: block; color: #2563eb; text-decoration: none; font-size: 13px; word-break: break-all; margin-bottom: 4px; }
+    .link-row a:hover { text-decoration: underline; }
+    .desc { font-size: 12px; color: #777; }
+    .tag { display: inline-block; background: #e0f7f4; color: #0891b2; border-radius: 3px; font-size: 11px; padding: 1px 5px; margin-right: 4px; }
+    .current-url { background: #1a1a2e; color: #a8e6cf; font-size: 12px; padding: 10px; border-radius: 4px; font-family: monospace; margin-bottom: 24px; word-break: break-all; }
+  </style>
+</head>
+<body>
+
+<h1>📡 Tracker Click Test</h1>
+<p class="sub">このページがリファラ元（クリック元ページ）になります。リンクをクリックするとトラッカー経由で遷移先に飛びます。</p>
+
+<div class="current-url" id="self-url"></div>
+
+<h2>① 基本テスト（UTM なし）</h2>
+<div class="link-row">
+  <a id="link-basic" href="#" target="_blank" referrerpolicy="unsafe-url">トラッカー経由（パラメータなし）</a>
+  <div class="desc"><span class="tag">basic</span>リファラと _ads_sid のみ確認</div>
+</div>
+
+<h2>② UTM フル + fbclid（Instagram 広告パターン）</h2>
+<div class="link-row">
+  <a id="link-utm-full" href="#" target="_blank" referrerpolicy="unsafe-url">トラッカー経由（UTM全部 + fbclid）</a>
+  <div class="desc"><span class="tag">utm</span><span class="tag">fbclid</span>utm_creative / medium / source / campaign / content / term / id + fbclid</div>
+</div>
+
+<h2>③ 非常に長いパラメータ（150文字超 fbclid）</h2>
+<div class="link-row">
+  <a id="link-long-param" href="#" target="_blank" referrerpolicy="unsafe-url">トラッカー経由（超長パラメータ）</a>
+  <div class="desc"><span class="tag">long</span>Facebook 実際のクリック ID 相当の長さ（Base64 エンコード 160 字）</div>
+</div>
+
+<h2>④ カスタムパラメータ（ad_cockpit_deli + media）</h2>
+<div class="link-row">
+  <a id="link-custom" href="#" target="_blank" referrerpolicy="unsafe-url">トラッカー経由（ad_cockpit_deli + media）</a>
+  <div class="desc"><span class="tag">custom</span>ad_cockpit_deli / media / utm の組み合わせ</div>
+</div>
+
+<h2>⑤ referrerpolicy="no-referrer" 設定（リファラ抑制）</h2>
+<div class="link-row">
+  <a id="link-no-ref" href="#" target="_blank" referrerpolicy="no-referrer">トラッカー経由（referrerpolicy=no-referrer）</a>
+  <div class="desc"><span class="tag">no-referrer</span>ブラウザがリファラを送らないケースの再現。_ads_sid と転送パラメータの有無を確認。</div>
+</div>
+
+<h2>⑥ トラッカーなし（直接リンク）</h2>
+<div class="link-row">
+  <a id="link-direct" href="#" target="_blank" referrerpolicy="unsafe-url">直接遷移（トラッカーなし）</a>
+  <div class="desc"><span class="tag">direct</span>比較用。リファラあり・_ads_sid なし。</div>
+</div>
+
+<script>
+  // ngrok URL は GitHub Pages デプロイ後に差し替える
+  const TRACKER = 'https://c038-192-51-222-130.ngrok-free.app';
+  const BID     = 'deac01e4f381a6dad4e64f27';
+  const TRACKING_ID = 'b8a1950016bc';
+  const DEST    = 'https://tao119.github.io/test-lp/test-dest.html';
+
+  const base = `${TRACKER}/cl/${TRACKING_ID}?bid=${BID}`;
+  const longFbclid = 'PAZXh0bgNhZW0CMAABGdS9xkTivlD7Qa6_YT2xXPlMDz3HuFJ8wRHalNwcMVkMFYKVoiDkNvnOxjRmSnJ2DxMwZLiV8qqCKGCBuVrxuZg_aem_' + 'A'.repeat(40);
+
+  const utmFull = 'utm_creative=PRascatt106133&utm_medium=paid&utm_source=ig&utm_id=120247927744260337&utm_content=120247927808800337&utm_term=120247927744250337&utm_campaign=120247927744260337&fbclid=PAZXh0bgNhZW0BMABhZG';
+
+  document.getElementById('link-basic').href       = base;
+  document.getElementById('link-utm-full').href     = `${base}&${utmFull}`;
+  document.getElementById('link-long-param').href   = `${base}&${utmFull}&fbclid=${longFbclid}`;
+  document.getElementById('link-custom').href       = `${base}&ad_cockpit_deli=DELI_98765_20260706&media=instagram&utm_creative=TEST001&utm_medium=paid&utm_source=ig`;
+  document.getElementById('link-no-ref').href       = `${base}&${utmFull}`;
+  document.getElementById('link-direct').href       = `${DEST}?utm_creative=PRascatt106133&utm_medium=paid&utm_source=ig&_direct=1`;
+
+  document.getElementById('self-url').textContent = 'このページ: ' + window.location.href;
+</script>
+</body>
+</html>
