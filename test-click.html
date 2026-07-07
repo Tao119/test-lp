@@ -98,6 +98,16 @@
   }
 
   document.getElementById('self-url').textContent = 'このページ: ' + window.location.href;
+
+  // _ref 自動付与スニペット: トラッカーリンクに現在の URL をパラメータとして追加
+  // (ブラウザの referrer policy に依存せずフル URL を記録するため)
+  document.querySelectorAll(`a[href*="${TRACKER}/cl/"]`).forEach(a => {
+    a.addEventListener('click', function() {
+      const u = new URL(this.href);
+      u.searchParams.set('_ref', location.href);
+      this.href = u.toString();
+    });
+  });
 </script>
 </body>
 </html>
